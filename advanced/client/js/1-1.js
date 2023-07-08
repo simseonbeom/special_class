@@ -53,6 +53,7 @@ function getCss(node,prop){
 
   return getComputedStyle(node)[prop];
 }
+
 function setCss(node,prop,value){
   // const {node,prop,fontSize,msg,active} = options;
   if(typeof node === 'string'){
@@ -122,13 +123,6 @@ const user = {
 // }
 
 
-
-
-
-
-
-
-
 // node의 값을 문자로 받을 경우
 
 // node가 없을 경우
@@ -138,7 +132,37 @@ const user = {
 // prop의 값이 style의 속성이 아닐 경우
 
 
+// h1의 폰트 크기를 증가시키거나 감소시키는 함수를 만들어주세요.
 
+// 1. h1, plus, minus 요소를 변수로 지정한다.
+// 2. h1의 폰트 사이즈를 가져온다.
+// 3. plus,minus에 연결할 이벤트 함수를 만든다.
+// 4. h1의 fontsize를 증가시킨다.
+
+// plus 버튼을 클릭했을때 h1의 폰트 사이즈를 1씩 증가 시킨다.
+   
+
+const plus = $('.plus');
+const minus = $('.minus');
+const h1 = $('h1');
+
+
+let currentSize = parseInt(getCss('h1','font-size'),10);
+
+function handleIncre(){
+
+  setCss(h1,'font-size',`${++currentSize}px`);
+}
+
+
+function handleDecre(){
+
+  setCss(h1,'font-size',`${--currentSize}px`);
+}
+
+
+plus.addEventListener('click',handleIncre);
+minus.addEventListener('click',handleDecre)
 
 
 
